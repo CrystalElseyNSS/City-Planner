@@ -15,13 +15,19 @@ namespace Planner
             }
         }
 
-        private string _designer = "Crystal Elsey";
+        private string _designer;
         private DateTime _dateConstructed = new DateTime();
-        private string _address = "303 Criddle Street";
+        private string _address;
+        private string _owner;
 
         public Building(string newBuilding)
         {
             _address = newBuilding;
+        }
+
+        public void PurchasedBy(string newOwner)
+        {
+            _owner = newOwner;
         }
 
         public void ConstructedOn()
@@ -36,10 +42,12 @@ namespace Planner
 
         public void BuildingReport()
         {
+            Console.WriteLine($"Property: {this._address}");
             Console.WriteLine($"Designed by: {this._designer}");
             Console.WriteLine($"Constructed on: {this._dateConstructed}");
-            Console.WriteLine($"Address: {this._address}");
             Console.WriteLine($"Volume: {this.Volume}");
+            Console.WriteLine($"Purchased by: {this._owner}");
+            Console.WriteLine($"--------------------------");
         }
     }
 }
